@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+	function fearNotLetter(str) {
+  var charOfStr = [];
+  var checkChar = 0;
+  for(i = 0; i < str.length; i++) {
+    charOfStr.push(str.charCodeAt(i));
+  }
+  console.log(charOfStr);
+  for(i = 0; i < charOfStr.length - 1; i++) {
+    if (charOfStr[i+1] - charOfStr[i] > 1) {
+      var charIs = charOfStr[i]+1;
+      console.log(charIs);
+      str = String.fromCharCode(100);
+    } else if (charOfStr[i+1] - charOfStr[i] === 1) {
+    	checkChar += 1;
+    }
+  }
+  if (checkChar+1 === charOfStr.length) {
+  	str = undefined;
+  }
+  return str;
+}
+
+fearNotLetter("abce");
+
+</script>
+	
+</body>
+</html>

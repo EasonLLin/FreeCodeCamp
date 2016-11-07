@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+<script>
+function truthCheck(collection, pre) {
+  // Is everyone being true?
+  //console.log(collection.length);
+  //console.log(collection);
+  for(var i = 0; i < collection.length; i++) {
+    var predicate = collection[i][pre];
+    console.log(predicate);
+    if(predicate === '' || predicate === null || predicate === 0 || predicate === undefined || predicate !== predicate) {
+      return false;
+    }
+  return true;
+  
+}
+
+truthCheck([{"single": "double"}, {"single": NaN}], "single");
+
+</script>
+</body>
+</html>

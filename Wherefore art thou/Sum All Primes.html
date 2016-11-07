@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	
+
+function sumPrimes(num) {
+  var arr = [2];
+  var sum = 0;
+  //找出所有小於num的質數。
+  //從數字3開始找~數字num
+  for(i = 3; i < num + 1; i++) {
+    var testArr = [];
+    var testNotZero = [];
+    //push所有 i/arr[j]的餘數進testArr
+    for(j = 0; j < arr.length; j++) {
+      testArr.push(i % arr[j]);
+    }
+    //若上述餘數不為0，則push至testNotZero中
+    for(k = 0; k < testArr.length; k++) {      
+      if(testArr[k] !== 0) {
+      	testNotZero.push(testArr[k]);
+      }
+    }
+    //若testArr的長度等於testNotZero的長度，代表此數字i為質數，push質數至arr中
+    if(testArr.length === testNotZero.length) {
+      arr.push(i);
+      //console.log('i = ' + i)
+    }
+    console.log(arr);
+  }
+
+  //將所有質數加總，求得sum
+  for(l = 0; l < arr.length; l++) {
+    sum += arr[l];
+  }
+  console.log(sum);
+  return sum;
+}
+
+sumPrimes(10);
+
+</script>
+	
+</body>
+</html>

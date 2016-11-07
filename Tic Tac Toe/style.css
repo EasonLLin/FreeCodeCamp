@@ -1,0 +1,166 @@
+.container {
+  width: 350px;
+}
+
+#flags{
+  margin-top: 30px;
+}
+
+.flag {
+  margin-bottom: 0px;
+}
+
+#whos-turn1 {
+  background-color: #00b3b3;
+  height: 40px;
+}
+
+h4 {
+  position: relative;
+  margin-bottom: 0;
+  color: white;
+  text-shadow: 1px 1px black;
+  line-height: 2;
+  box-shadow: 2px 0px 1px black, inset 0px 0px 2px #f2f2f2;
+  top: 115px;
+}
+
+#whos-turn2 {
+  background-color: #e6005c;
+  height: 40px;
+}
+
+#frame {
+  background-color: #663300;
+  width: 350px;
+  height: 350px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  border-radius: 20px;
+  box-shadow: 7px 7px 3px;
+  background: #663300; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #331a00, #663300 5%, #663300 95%, #331a00); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(left, #331a00, #663300 5%, #663300 95%, #331a00); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(left, #331a00, #663300 5%, ##663300 95%, #331a00); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(left, #331a00, #663300 5%, #663300 95%, #331a00); /* Standard syntax */
+}
+
+#black-bord {
+  height: 320px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  background: #003333; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(#004d4d 10%,  #003333 80%); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#004d4d 10%,  #003333 80%); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(#004d4d 10%,  #003333 80%); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#004d4d 10%,  #003333 80%); /* Standard syntax */
+  box-shadow: inset 0 0 15px #663300, 0 0 10px #003333;
+}
+
+#go-page p {
+  color: rgba(255, 255, 255, 0.8);
+  height: 96px;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#choose-page p {
+  color: rgb(255, 255, 255);
+  opacity: 0;
+  height: 96px;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#result-page p {
+  color: rgb(255, 255, 255);
+  opacity: 0;
+  height: 96px;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.row1 p, .row2 p, .row3 p {
+  color: rgb(255, 255, 255);
+  height: 96px;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 40px;
+}
+
+
+.row1, .row2, .row3 {
+  margin: 0;
+  padding: 0;
+
+}
+
+.row1 .left, .row1 .mid, .row2 .left, .row2 .mid {
+  border: solid;
+  border-width: 0px 3px 3px 0px;
+  border-color: rgb(255, 255, 255);
+  opacity: 0;
+}
+
+.row1 .right, .row2 .right{
+  border: solid;
+  border-width: 0px 0px 3px 0px;
+  border-color: rgb(255, 255, 255);
+  opacity: 0;
+}
+
+.row3 .left, .row3 .mid {
+  border: solid;
+  border-width: 0px 3px 0px 0px;
+  border-color: rgb(255, 255, 255);
+  opacity: 0;
+}
+
+#go-page, #choose-page, #result-page {
+  width: 290px;
+  height: 290px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  position: absolute;
+  font-size: 35px;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0.5);
+  border: 3px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0);
+  margin-top: 30px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+#choose-page button {
+  width: 50px;
+  opacity: 0;
+}
+
+#result-page button {
+  margin-top: 70px;
+  opacity: 0;
+}
+
+button:hover {
+  border-color: rgb(255, 255, 255);
+  border-style: dashed;
+  border-radius: 30%;
+  color: rgb(255, 255, 255);
+  opacity: 0.8;
+  transform: translateY(0px);
+}
+
+button:focus {
+  outline: none;
+}

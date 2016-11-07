@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+
+// Fill in the object constructor with the following methods below:
+
+// getFirstName()
+// getLastName()
+// getFullName()
+// setFirstName(first)
+// setLastName(last)
+// setFullName(firstAndLast)
+
+// Run the tests to see the expected output for each method.
+// The methods that take an argument must accept only one argument and it has to be a string.
+// These methods must be the only available means of interacting with the object.
+// Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.
+// Here are some helpful links:
+
+// Closures
+// Details of the Object Model
+	
+
+var Person = function(firstAndLast) {
+  var arr = firstAndLast.split(' ');
+  var firstName = arr[0];
+  var lastName = arr[1];
+  	this.getFirstName = function() {
+  	  console.log('ans', firstName);
+  	  return firstName;
+  	};
+  	this.getLastName = function() {
+  	  console.log('ans', lastName);
+  	  return lastName;
+  	};
+  	this.getFullName = function() {
+  	  console.log('ans', firstName + ' ' + lastName);
+  	  return firstName + ' ' + lastName;
+  	};
+  	this.setFirstName = function(first) {
+      firstName = first;
+      console.log('ans', firstName + ' ' + lastName);
+  	};
+  	this.setLastName = function(last) {
+      lastName = last;
+      console.log('ans', firstName + ' ' + lastName);
+  	};
+  	this.setFullName = function(fullName) {
+      arr = fullName.split(' ');
+      firstName = arr[0];
+      lastName = arr[1];
+      console.log('ans', firstName + ' ' + lastName);
+    };
+};
+
+var bob = new Person('Bob Ross');
+console.log(bob instanceof Person);
+bob.getFullName();
+console.log(bob instanceof Person);
+console.log(Person);
+</script>
+	
+</body>
+</html>

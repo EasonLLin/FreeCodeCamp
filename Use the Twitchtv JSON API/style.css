@@ -1,0 +1,39 @@
+HTML, body {
+  background-color: black;
+}
+  
+.inner {
+  margin: 10px 0px;
+  background-color: #ffe680;
+}
+  
+img {
+  height: 50px;
+  margin-top: 5px;
+}
+
+.top-bar {
+  background-color: #999999;
+  padding-bottom: 10px;
+}
+
+.row {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 3px;
+}
+
+.inner {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 60px;
+}
+
+.channel {
+  margin-top: 20px;
+}
+
+
+.offline {
+  margin-top: 20px;
+}

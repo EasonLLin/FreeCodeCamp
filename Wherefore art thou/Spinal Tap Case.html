@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<script>
+	function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+  //console.log(/[,.?\-]/.test(str[1]));
+  for(i = 1; i < str.length; i++) {
+    str = str.replace('_', '');
+    if(str[i] === str[i].toUpperCase() && /[A-Z]/.test(str[i]) === true && /\s/.test(str[i-1]) === false) {
+      str = str.split(str[i]).join(' ' + str[i].toLowerCase());
+    }
+  }
+  str = str.toLowerCase().replace(/\s/gi, '-').replace(/--/gi, '-');
+  return str;
+}
+}
+
+spinalCase('thisIsSpinalTap');
+</script>
+</body>
+</html>

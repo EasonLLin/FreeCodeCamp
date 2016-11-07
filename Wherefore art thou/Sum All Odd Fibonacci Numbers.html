@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<script>
+	
+
+function sumFibs(num) {
+  var arr = [1, 1];
+  var total = 1;
+  var k = 1;
+  var n = null;
+  do {
+    n = arr[k];
+    console.log('n = ' + n);
+    arr.push(arr[k] + arr[k-1]);
+    console.log('arr = ' + arr);
+    if(n % 2 !== 0 && num >= n) {
+      total += n;
+      console.log('total = ' + total);
+    }
+    k++;
+  }
+  while(n <= num);
+  return total;
+}
+
+sumFibs(10);
+</script>
+</body>
+</html>

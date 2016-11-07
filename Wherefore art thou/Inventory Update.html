@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+
+function updateInventory(arr1, arr2) {
+    // All inventory must be accounted for or you're fired!
+  var arr1Name = new Array;
+  var arr2Name = new Array;
+  var finalArr = new Array;
+  for(var i = 0; i < arr1.length; i++) {
+    arr1Name.push(arr1[i][1]);
+  }
+  for(var j = 0; j < arr2.length; j++) {
+  	arr2Name.push(arr2[j][1]);
+  }
+  for(var k = 0; k < arr1.length; k++) {
+  	var ind = arr2Name.indexOf(arr1Name[k]);
+  	if(ind !== -1) {
+  	  arr1[k][0] += arr2[ind][0];
+  	  arr2.splice(ind , 1);
+  	  arr2Name.splice(ind, 1);
+  	}
+  }
+  var compArrName = arr1Name.concat(arr2Name).sort();
+  var compArr = arr1.concat(arr2);
+  console.log(compArrName);
+  console.log(compArr);
+  for(var l = 0; l < compArrName.length; l++) {
+  	for(var m = 0; m < compArrName.length; m++) {
+  	  var num = compArr[m].indexOf(compArrName[l]);
+  	  if(num !== -1) {
+  	  	finalArr.push(compArr[m]);
+  	  }
+  	}
+  }
+
+  return finalArr;
+}
+
+// Example inventory lists
+var curInv = [
+    [21, "Bowling Ball"],
+    [2, "Dirty Sock"],
+    [1, "Hair Pin"],
+    [5, "Microphone"]
+];
+
+var newInv = [
+    [2, "Hair Pin"],
+    [3, "Half-Eaten Apple"],
+    [67, "Bowling Ball"],
+    [7, "Toothpaste"]
+];
+
+updateInventory(curInv, newInv);
+
+
+</script>
+	
+</body>
+</html>

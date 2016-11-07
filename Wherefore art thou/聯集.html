@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+<script>
+function sym(args) {
+
+  var argsArr = Array.from(arguments);
+  
+  argsArr = argsArr.reduce(function(a, b) {
+  	return a.concat(b);
+  });
+
+  console.log(argsArr);
+
+  argsArr = argsArr.sort(function(a, b) {
+  	return a - b;
+  });
+  
+  for(i = 1; i < argsArr.length + 1; i++) {
+    if(argsArr[i] === argsArr[i-1]) {
+      delete argsArr[i-1];
+    }
+  }
+  argsArr = argsArr.filter(function(val) {
+    return val !== undefined;
+  })
+  console.log(argsArr);
+
+
+  
+  
+  // for(k = 0; k < arguments.length - 1; k++) {
+  // 	pre = arguments[k];
+  // 	//console.log(arguments[k])
+  // 	//console.log(pre);
+  // 	cur = arguments[k+1];
+  // 	//console.log(cur);
+  //   for(var i = 0; i < pre.length; i++) {
+  //     var preVal = pre[i];
+  //     for(var j = 0; j < cur.length; j++) {
+  //       var curVal = cur[j]
+  //       if(preVal === curVal) {
+  //     	  cur[j] = null;
+  //     	  cur.slice(j, j+1)
+  //     	}
+  //     }
+  //   }
+  //   arguments[k+1] = pre.concat(cur);
+  // }
+  // arr = arguments[arguments.length - 1].filter(function(val) {
+  // 	return val !== null;
+  // });
+  // arr = arr.sort(function(a,b) {
+  // 	return a - b;
+  // })
+  // console.log(arr);
+}
+
+sym([1, 2, 3], [5, 2, 1, 4]);
+
+</script>	
+
+</body>
+</html>

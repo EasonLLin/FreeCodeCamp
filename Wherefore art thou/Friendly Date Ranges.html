@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+// 	Convert a date range consisting of two dates formatted as YYYY-MM-DD into a more readable format.
+
+// The friendly display should use month names instead of numbers and ordinal dates instead of cardinal (1st instead of 1).
+
+// Do not display information that is redundant or that can be inferred by the user: if the date range ends in less than a year from when it begins, do not display the ending year.
+
+// Additionally, if the date range begins in the current year (i.e. it is currently the year 2016) and ends within one year, the year should not be displayed at the beginning of the friendly range.
+
+// If the range ends in the same month that it begins, do not display the ending year or month.
+
+// Examples:
+
+// makeFriendlyDates(["2016-07-01", "2016-07-04"]) should return ["July 1st","4th"]
+// makeFriendlyDates(["2016-07-01", "2018-07-04"]) should return ["July 1st, 2016", "July 4th, 2018"]
+
+
+function makeFriendlyDates(arr) {
+  var splitArr = [];
+  var splitArr2 = [];
+  for(var i = 0; i < arr.length; i++) {
+    splitArr[i] = arr[i].split('-');
+    splitArr2[i] = arr[i].split('-');
+    splitArr2[i][0] = Number(splitArr2[i][0]);
+    splitArr2[i][1] = Number(splitArr2[i][1]);
+    splitArr2[i][2] = Number(splitArr2[i][2]);
+    splitArr[i][2] = dateChanger(splitArr[i][2]);
+    splitArr[i][1] = monthChanger(splitArr[i][1]);
+  }
+  
+  var finalArr = [];
+  checkArrStatus(splitArr, splitArr2);
+  console.log('arr2', splitArr2);
+  
+  function checkArrStatus(splitArr, splitArr2) {
+    var year1 = splitArr[0][0];
+    var year2 = splitArr[1][0];
+    var month1 = splitArr[0][1];
+    var month2 = splitArr[1][1];
+    var date1 = splitArr[0][2];
+    var date2 = splitArr[1][2];
+    var word1 = '';
+    var word2 = '';
+    console.log(Number(year2));
+    if(splitArr[0][0] === splitArr[1][0]) {
+  	  if(splitArr[0][1] === splitArr[1][1]) {
+  	    if(splitArr[0][2] === splitArr[1][2]) {
+  	  	  word1 = month1 + ' ' + date1 + ', ' + year1;
+  	  	  finalArr.push(word1);
+  	    } else {
+  	  	  word1 = month1 + ' ' + date1;
+  	  	  word2 = date2;
+  	  	  finalArr.push(word1);
+  	      finalArr.push(word2);
+  	    }
+  	  } else {
+  	    word1 = month1 + ' ' + date1 + ', ' + year1;
+  	    word2 = month2 + ' ' + date2;
+  	    finalArr.push(word1);
+  	    finalArr.push(word2);
+  	  }
+    } else if(Number(year2) == Number(year1) + 1) {
+      if(year1 == '2016') {
+      	word1 = month1 + ' ' + date1;
+      	word2 = month2 + ' ' + date2;
+      	finalArr.push(word1);
+  	    finalArr.push(word2);
+      } else if (Number(splitArr2[0][1]) < Number(splitArr2[1][1])) {
+      	word1 = month1 + ' ' + date1 + ', ' + year1;
+  	  	word2 = month2 + ' ' + date2;
+  	  	finalArr.push(word1);
+  	  	finalArr.push(word2);
+      } else if (Number(splitArr2[0][1]) === Number(splitArr2[1][1]) && Number(splitArr2[0][2]) <= Number(splitArr2[1][2])) {
+      	word1 = month1 + ' ' + date1 + ', ' + year1;
+	  	word2 = month2 + ' ' + date2 + ', ' + year2;
+	  	finalArr.push(word1);
+	  	finalArr.push(word2);
+      } else if(Number(splitArr2[0][1]) === Number(splitArr2[1][1]) && Number(splitArr2[0][2]) > Number(splitArr2[1][2])) {
+      	word1 = month1 + ' ' + date1 + ', ' + year1;
+  	  	word2 = month2 + ' ' + date2;
+  	  	finalArr.push(word1);
+  	  	finalArr.push(word2);
+      } else {
+      	word1 = month1 + ' ' + date1 + ', ' + year1;
+	  	word2 = month2 + ' ' + date2 + ', ' + year2;
+	  	finalArr.push(word1);
+	  	finalArr.push(word2);
+      }
+    } else {
+      word1 = month1 + ' ' + date1 + ', ' + year1;
+  	  word2 = month2 + ' ' + date2 + ', ' + year2;
+  	  finalArr.push(word1);
+  	  finalArr.push(word2);
+    }
+  }
+  console.log(finalArr);
+  return finalArr;
+}
+
+
+
+function dateChanger(num) {
+  num = Number(num);
+  if(num === 1 || num === 21 || num ===31) {
+  	return num + 'st';
+  } else if(num === 2 || num === 22) {
+  	return num + 'nd';
+  } else if(num === 3 || num ===23) {
+  	return num + 'rd';
+  } else {
+  	return num + 'th';
+  }
+}
+
+function monthChanger(num) {
+  switch(num) {
+  	case '01':
+  	  return 'January';
+  	case '02':
+  	  return 'February';
+  	case '03':
+  	  return 'March';
+  	case '04':
+  	  return 'April';
+  	case '05':
+  	  return 'May';
+  	case '06':
+  	  return 'June';
+  	case '07':
+  	  return 'July';
+  	case '08':
+  	  return 'August';
+  	case '09':
+  	  return 'September';
+  	case '10':
+  	  return 'October';
+  	case '11':
+  	  return 'November';
+  	case '12':
+  	  return 'December';
+  }
+}
+
+makeFriendlyDates(["2022-09-05", "2023-09-05"]);
+
+
+</script>
+	
+</body>
+</html>

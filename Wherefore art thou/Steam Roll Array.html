@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+  function steamrollArray(arr) {
+  var flat = [];
+  flattenArr(arr);
+  function flattenArr(arr2) {
+    for(var i = 0; i < arr2.length; i++){
+      console.log(i);
+      if(Array.isArray(arr2[i])) {
+        if(arr2[i].length !== 0 ) {
+          flattenArr(arr2[i]);
+        }
+      } else {
+        flat.push(arr2[i]);
+      }
+    }
+  }
+  console.log(flat);
+  }
+  
+
+  
+  steamrollArray([[["a"]], [["b"]]])
+</script>	
+
+</body>
+</html>

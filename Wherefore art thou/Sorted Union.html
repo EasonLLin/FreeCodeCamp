@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<script type="text/javascript">
+	
+function uniteUnique(arr) {
+  
+  for(k = 0; k < arguments.length - 1; k++) {
+  	pre = arguments[k];
+  	//console.log(arguments[k])
+  	//console.log(pre);
+  	cur = arguments[k+1];
+  	//console.log(cur);
+    for(i = 0; i < pre.length; i++) {
+      var preVal = pre[i];
+      for(j = 0; j < cur.length; j++) {
+      	var curVal = cur[j]
+      	if(preVal == curVal) {
+      	  cur[j] = null;
+      	  //cur = cur.slice(j)
+      	}
+      }
+    }
+    arguments[k+1] = pre.concat(cur);
+  }
+  arr = arguments[arguments.length - 1].filter(function(val) {
+  	return val !== null;
+  });
+  console.log(arr);
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+</script>	
+</body>
+</html>

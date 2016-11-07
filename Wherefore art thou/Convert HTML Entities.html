@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+function convertHTML(str) {
+  // &colon;&rpar;
+  var change = '/&/</>/\/"/\'';
+  //str = str.replace(/[^\w\s]/gi, 'cccc');
+  var characters = str.match(/[^\w\s]/gi);
+  replaceHTML();
+  function replaceHTML() {
+    if(characters !== null) {
+      for(i = 0; i < characters.length; i++) {
+        var regExp = transferToRegExp(characters[i]);
+        str = str.replace(characters[i], regExp);
+      }
+    }
+    
+  }
+  function transferToRegExp(str) {
+    switch(str) {
+      case '&':
+        return '&amp;';
+      case '<':
+        return '&lt;';
+      case '>':
+        return '&gt;';
+      case '"':
+        return '&quot;';
+      case '\'':
+        return '&apos;';
+      
+    }
+  }
+  return str;
+}
+
+convertHTML("Dolce & Gabbana");
+
+</script>
+	
+</body>
+</html>

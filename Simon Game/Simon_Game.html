@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simon Game</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <div id="large-circle">
+    <div id="top-left" class="btn"></div>
+    <div id="top-right" class="push btn"></div>
+    <div id="bot-left" class="btn"></div>
+    <div id="bot-right" class="push btn"></div>
+    <div id="centural-circle">
+      <div class="row" id="outer-row">
+        <div id="title">
+          <h1>Simon</h1><p>&#174;</p>
+        </div>
+        <div class="row">
+          <div id="counter">
+            <div id="monitor"><p></p></div>
+            <p>COUNT</p>
+          </div>
+          <div id="start">
+            <button type="button" id="start-btn"></button>
+            <p>START</p>
+          </div>
+          <div id="strict">
+            <div id="red-dot"></div>
+            <button type="button" id="strict-btn"></button>
+            <p>STRICT</p>
+          </div>   
+        </div>
+        <div class="row">
+          <div id="on-off">
+            <div id="slider">
+              <div id="switch"></div>
+            </div>
+            <p>OFF&#32;&#32;&#32;&#32;&#32;ON<p>
+          </div> 
+        </div>
+      </div>
+      
+    
+    </div>
+
+  </div>
+
+  <audio id="top-right-sound">
+    <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="bot-right-sound">
+    <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg">
+  </audio>
+    <audio id="bot-left-sound">
+    <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg" >
+  </audio>
+    <audio id="top-left-sound">
+    <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="script.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+</html>

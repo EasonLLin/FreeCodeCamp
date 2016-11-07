@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+
+
+
+function checkCashRegister(price, cash, cid) {
+ var change = cash - price;
+  var multiple = [0.01, 0.05, 0.10, 0.25, 1.00, 5.00, 10.00, 20.00, 100.00];
+  var changeLeft = new Array();
+  var obj = new Object();
+  var changeFind = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  var arrFind = new Array();
+  var ins = null;
+  var changeCheck = 0;
+  console.log(multiple);
+
+  cid.forEach(function(data){
+    obj[data[0]] = data[1];
+  });
+  
+  changeLeft.push(Math.round(obj.PENNY / 0.01));
+  changeLeft.push(Math.round(obj.NICKEL / 0.05));
+  changeLeft.push(Math.round(obj.DIME / 0.10));
+  changeLeft.push(Math.round(obj.QUARTER / 0.25));
+  changeLeft.push(Math.round(obj.ONE / 1.00));
+  changeLeft.push(Math.round(obj.FIVE / 5.00));
+  changeLeft.push(Math.round(obj.TEN / 10.00));
+  changeLeft.push(Math.round(obj.TWENTY / 20.00));
+  changeLeft.push(Math.round(obj['ONE HUNDRED'] / 100.00));
+  console.log('changeLeft', changeLeft);
+
+
+  for(var i = 8; i > -1; i--) {
+    minus(i);
+  }
+  
+  function minus(i) {
+    if(change >= multiple[i] && change !== 0 && changeLeft[i] > 0) {
+      change = change.toFixed(2) - multiple[i];
+      console.log('change', change);
+      changeLeft[i] -= 1;
+      changeFind[i] += 1;
+      console.log('changeFind', changeFind);
+      if(changeLeft[i] !== 0) {
+        minus(i);
+      }
+    } else if(change >= multiple[i] && changeLeft[i] === 0) {
+      console.log('aaaa');
+       ins = 'Insufficient Funds';
+    }
+  }
+  
+
+
+ 
+  for(var j = 8; j > -1; j--) {
+    if(changeFind[j] > 0) {
+      arrFind.push([cid[j][0], changeFind[j] * multiple[j]]);
+    }
+  }
+
+  // Here is your change, ma'am.
+  console.log('Find', arrFind);
+  if(ins === 'Insufficient Funds' && change !== 0) {
+    return ins;
+  }
+
+  for(var k = 0; k < changeLeft.length; k++) {
+    changeCheck += changeLeft[k];
+  }
+
+  if(changeCheck === 0) {
+    return 'Closed';
+  }
+
+  if(arrFind !== undefined) {
+    return arrFind;
+  }
+
+  
+}
+
+// Example cash-in-drawer array:
+// [["PENNY", 1.01],
+// ["NICKEL", 2.05],
+// ["DIME", 3.10],
+// ["QUARTER", 4.25],
+// ["ONE", 90.00],
+// ["FIVE", 55.00],
+// ["TEN", 20.00],
+// ["TWENTY", 60.00],
+// ["ONE HUNDRED", 100.00]]
+
+checkCashRegister(19.50, 20.00, [["PENNY", 0.50], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
+
+
+
+</script>
+	
+</body>
+</html>

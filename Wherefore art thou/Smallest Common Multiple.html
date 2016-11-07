@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+  function smallestCommons(arr) {
+  // allNumArr為一個array,其值為[arr[0]~arr[1]]間的所有數字
+  var allNumArr = []
+  //primeNumArr是一個所有小於arr中最大的數的所有質數的array
+  var primeNumArr = [2];
+
+  var lcm = 1;
+  if(arr[0] < arr[1]) {
+    for(j = arr[0]; j < arr[1] + 1; j++) {
+      allNumArr.push(j);
+    }
+    findPrime(arr[1]);
+  } else {
+    for(j = arr[1]; j < arr[0] + 1; j++) {
+  	  allNumArr.push(j);
+    }
+    findPrime(arr[0])
+  }
+
+
+  //找所有小於arr中最大值的所有質數
+  function findPrime(num) {
+    for(i = 3; i < num + 1; i++) {
+      var testArr = [];
+      var testNotZero = [];
+      for(j = 0; j < arr.length; j++) {
+        testArr.push(i % primeNumArr[j]);
+      }
+      for(k = 0; k < testArr.length; k++) {      
+        if(testArr[k] !== 0) {
+          testNotZero.push(primeNumArr[k]);
+        }
+      }
+      if(testArr.length === testNotZero.length) {
+        primeNumArr.push(i);
+      }
+    }
+  }
+
+  //primeArr是allNumArr中所有數的因數及合成的array
+  var primeArr = [];
+  var primeArrByPrimeNum = [];
+  for(i = 0; i < allNumArr.length; i++) {
+  	primeArr[i] = [];
+  	//console.log(primeArr);
+  	//primeArrByPrimeNum[i] = [];
+  	for(j = 0; j < primeNumArr.length; j++) {
+  	  primeArr[i][j] = 0;
+  	  //primeArrByPrimeNum[i][j] = 0  
+    }
+    findDivisor(allNumArr[i], primeNumArr, i);
+  }
+  
+
+  for(j = 0; j < primeNumArr.length; j++) {
+  	primeArrByPrimeNum[j] = [];
+  	for(i = 0; i < allNumArr.length; i++) {
+  	  primeArrByPrimeNum[j][i] = primeArr[i][j];  	  
+  	}
+  }
+
+  //console.log(primeArrByPrimeNum);
+
+  //primeArr[0][0] = 333;
+  //console.log(primeArr);
+  //console.log('primeNumArr: ' + primeNumArr);
+  //求出allNumArr中每個數的因數
+  function findDivisor(target, primeNumArr, which) {
+    for(j = 0; j < primeNumArr.length; j++) {
+	  if(target % primeNumArr[j] === 0) {
+	    primeArr[which][j] += 1;
+	    //primeArrByPrimeNum[j][which] += 1;
+	    newTarget = target / primeNumArr[j];
+	    findDivisor(newTarget, primeNumArr, which);
+	  }
+	}
+  }
+
+  for(k = 0; k < primeArrByPrimeNum.length; k++) {
+    var max = Math.max.apply(null, primeArrByPrimeNum[k]);
+    console.log('max = ' + max);
+    //console.log('k = ' + k);
+    console.log('primeNumArr = '+ primeNumArr[k])
+    if(max !== 0) {
+      for(i = 0; i < max; i++) {
+      	lcm *= primeNumArr[k];
+      }
+      console.log(lcm);
+    }   
+  };
+  console.log(lcm)
+  
+}
+
+
+smallestCommons([1,13]);
+</script>
+	
+</body>
+</html>

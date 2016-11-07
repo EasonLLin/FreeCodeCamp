@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+<script>
+function addTogether() {
+	var first = 0;
+  if(arguments.length === 1 && typeof arguments[0] === 'number') {
+      first += arguments[0];
+      return function(b){
+        if(typeof b === 'number') {
+          return first + b;  
+        } else {
+          return undefined;
+        }
+    }
+  } else if (arguments.length === 2 && typeof arguments[0] === 'number' && typeof arguments[1] === 'number') {
+    return arguments[0] + arguments[1];
+  } else {
+    return undefined;
+  }
+}
+
+addTogether(2)(3);
+
+</script>
+</body>
+</html>

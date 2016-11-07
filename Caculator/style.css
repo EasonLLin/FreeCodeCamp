@@ -1,0 +1,100 @@
+html, body {
+  background-color: #9a6509;
+}
+.caculator {
+  margin: auto;
+  margin-top: 50px;
+  height: 440px;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 5px 6px 6px #333333;
+  background: #999999; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #737373, #999999 5%, #999999 95%, #737373); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(left, #737373, #999999 5%, #999999 95%, #737373); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(left, #737373, #999999 5%, #999999 95%, #737373); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(left, #737373, #999999 5%, #999999 95%, #737373); /* Standard syntax */
+}
+
+.mornitor {
+  height: 100px;
+  background-color: #cbccc3;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #808080;
+  border-width: 2px 0px 0px 2px;
+  font-family: 'Russo One', sans-serif;
+  text-align: right;
+}
+
+
+.mornitor .answer {
+  font-size: 40px;
+  height: 70px;
+  margin: 0;
+  line-height: 2.2;
+}
+
+.mornitor .formula {
+  font-size: 18px;
+  height: 30px;
+  color: gray;
+}
+
+button {
+  margin-top: 10px;
+  width: 55px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px #333333;
+  outline: none;
+  font-weight: normal;
+  font-family: 'Russo One', sans-serif;
+  font-size: 18px;
+}
+
+.AC, .CE {
+  background-color: #a72d45;
+  color: white;
+  border-right-color: #a2243d;
+  border-bottom-color: #a2243d;
+  border-top-color: #bd9ea5;
+  border-left-color: #bd9ea5;
+
+}
+
+.row .buttons {
+  margin: 0;
+  margin-right: 3px;
+  margin-left: 7px;
+}
+
+.row .col-xs-6, .row .col-xs-3, .row .col-xs-3 .col-xs-12, .row .col-xs-6 .col-xs-12  {
+  padding: 0;
+}
+
+.btn0 {
+  width: 125px;
+}
+
+.btnEqual {
+  height: 110px;
+  box-shadow: 1px 2px #333333;
+}
+
+button:hover {background-color: #b3b3b3}
+
+button:active {
+  background-color: #a6a6a6;
+  transform: translateY(2px);
+}
+
+button.AC:hover, button.CE:hover {
+  background-color: #96253b;
+  color: #b3b3b3;
+}
+
+button:active {
+  background-color: #a6a6a6;
+  transform: translateY(2px);
+}

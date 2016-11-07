@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+<script>
+function sym(args) {
+
+  // var argsArr = Array.from(arguments);
+  
+  // argsArr = argsArr.reduce(function(a, b) {
+  // 	return a.concat(b);
+  // });
+
+  // console.log(argsArr);
+
+  // argsArr = argsArr.sort(function(a, b) {
+  // 	return a - b;
+  // });
+  
+  // for(i = 1; i < argsArr.length + 1; i++) {
+  //   if(argsArr[i] === argsArr[i-1]) {
+  //     delete argsArr[i-1];
+  //   }
+  // }
+  // argsArr = argsArr.filter(function(val) {
+  //   return val !== undefined;
+  // })
+  // console.log(argsArr);
+
+  function orderIt(arr) {
+  	arr = arr.sort(function(a, b) {
+	  	return a - b;
+	});
+	return arr
+  }
+
+  function leftOneSame(arr) {
+  	for(l = 1; l < arr.length; l++) {
+  	  if(arr[l] === arr[l-1]) {
+  	  	delete arr[l-1];
+  	  }
+  	}
+  	arr = arr.filter(function(val) {
+  		return val !== undefined;
+  	});
+  	return arr;
+  }
+
+  function delAllSame(arr) {
+  	for(l = 1; l < arr.length; l++) {
+  	  if(arr[l] === arr[l-1]) {
+  	  	delete arr[l-1];
+  	  	delete arr[l];
+  	  }
+  	}
+  	arr = arr.filter(function(val) {
+  		return val !== undefined;
+  	});
+  	return arr;
+  }
+
+  var argsArr = Array.from(arguments);
+  //argsArr = orderIt(argsArr);
+  
+  argsArr = argsArr.reduce(function(prev, curr) {
+  	var pre = leftOneSame(orderIt(prev));
+  	var cur = leftOneSame(orderIt(curr));
+  	console.log('pre', pre);
+  	console.log('cur', cur);
+  	return delAllSame(orderIt(pre.concat(cur)));
+  });
+
+  console.log('fi', argsArr);
+
+
+
+
+  // for(k = 0; k < arguments.length - 1; k++) {
+  // 	pre = deSame(order(arguments[k]));
+  // 	cur = deSame(order(arguments[k+1]));
+  // 	//console.log(cur);
+  //   for(i = 0; i < pre.length; i++) {
+  //     var preVal = pre[i];
+  //     for(j = 0; j < cur.length; j++) {
+  //     	var curVal = cur[j]
+  //     	if(preVal == curVal) {
+  //     	  cur[j] = null;
+  //     	  pre[i] = null;
+  //     	  //cur = cur.slice(j)
+  //     	}
+  //     }
+  //   }
+  //   arguments[k+1] = pre.concat(cur);
+  // }
+  // arr = arguments[arguments.length - 1].filter(function(val) {
+  // 	return val !== null;
+  // });
+  // arr = arr.sort(function(a, b) {
+  // 	return a-b;
+  // })
+  // console.log(arr);
+
+  
+  
+  // for(k = 0; k < arguments.length - 1; k++) {
+  // 	pre = arguments[k];
+  // 	//console.log(arguments[k])
+  // 	//console.log(pre);
+  // 	cur = arguments[k+1];
+  // 	//console.log(cur);
+  //   for(var i = 0; i < pre.length; i++) {
+  //     var preVal = pre[i];
+  //     for(var j = 0; j < cur.length; j++) {
+  //       var curVal = cur[j]
+  //       if(preVal === curVal) {
+  //     	  cur[j] = null;
+  //     	  cur.slice(j, j+1)
+  //     	}
+  //     }
+  //   }
+  //   arguments[k+1] = pre.concat(cur);
+  // }
+  // arr = arguments[arguments.length - 1].filter(function(val) {
+  // 	return val !== null;
+  // });
+  // arr = arr.sort(function(a,b) {
+  // 	return a - b;
+  // });
+  // console.log(arr);
+}
+
+sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3])
+
+</script>	
+
+</body>
+</html>

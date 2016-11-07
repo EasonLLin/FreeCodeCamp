@@ -1,0 +1,194 @@
+.block {
+  margin-top : 60px;
+}
+
+
+HTML, body { 
+  height : 100%;
+  background-color: gray;
+}
+
+.icon{
+  font-size: 35px;
+  margin: 4px;
+  padding: 3px;
+  color: white;
+  width: 40px;
+  border-radius: 50%;
+}
+.row2 {
+  color : white;
+}
+
+.author {
+  margin-right : 5px;
+}
+
+.text-color {
+  color: rgb(128, 128, 128);
+}
+
+.back-color {
+  background-color: rgb(128, 128, 128);
+}
+
+
+.btn {
+  margin-top: 4px;
+  color: white;
+}
+
+.animate0 {
+  -webkit-animation: color0 1s;
+  animation: color0 1s;
+}
+
+.animate1 {
+  -webkit-animation: color1 1s;
+  animation: color1 1s;
+}
+
+.animate2 {
+  -webkit-animation: color2 1s;
+  animation: color2 1s;
+}
+
+.animate3 {
+  -webkit-animation: color3 1s;
+  animation: color3 1s;
+}
+
+.animate4 {
+  -webkit-animation: color4 1s;
+  animation: color4 1s;
+}
+
+.to_animate0 {
+  -webkit-animation: to_color0 1s;
+  animation: to_color0 1s;
+}
+
+.to_animate1 {
+  -webkit-animation: to_color1 1s;
+  animation: to_color1 1s;
+}
+
+.to_animate2 {
+  -webkit-animation: to_color2 1s;
+  animation: to_color2 1s;
+}
+
+.to_animate3 {
+  -webkit-animation: to_color3 1s;
+  animation: to_color3 1s;
+}
+
+.to_animate4 {
+  -webkit-animation: to_color4 1s;
+  animation: to_color4 1s;
+}
+
+.to_animate5 {
+  -webkit-animation: to_color5 1s;
+  animation: to_color5 1s;
+}
+
+@-webkit-keyframes color0 {
+    from {background-color: rgb(128, 128, 128);}
+    to {background-color: black;}
+}
+
+@-webkit-keyframes color1 {
+    from {background-color: rgb(153, 0, 0);}
+    to {background-color: black;}
+}
+
+@-webkit-keyframes color2 {
+    from {background-color: rgb(77, 121, 255);}
+    to {background-color: black;}
+}
+
+@-webkit-keyframes color3 {
+    from {background-color: rgb(204, 204, 0);}
+    to {background-color: black;}
+}
+
+@-webkit-keyframes color4 {
+    from {background-color: rgb(255, 153, 102);}
+    to {background-color: black;}
+}
+
+@-webkit-keyframes to_color0 {
+    from {background-color: black;}
+    to {background-color: rgb(128, 128, 128);}
+}
+
+@-webkit-keyframes to_color1 {
+    from {background-color: black;}
+    to {background-color: rgb(153, 0, 0);}
+}
+
+@-webkit-keyframes to_color2 {
+    from {background-color: black;}
+    to {background-color: rgb(77, 121, 255);}
+}
+
+@-webkit-keyframes to_color3 {
+    from {background-color: black;}
+    to {background-color: rgb(204, 204, 0);}
+}
+
+@-webkit-keyframes to_color4 {
+    from {background-color: black;}
+    to {background-color: rgb(255, 153, 102);}
+}
+
+@keyframes color0 {
+    from {background-color: rgb(128, 128, 128);}
+    to {background-color: black;}
+}
+
+@keyframes color1 {
+    from {background-color: rgb(153, 0, 0);}
+    to {background-color: black;}
+}
+
+@keyframes color2 {
+    from {background-color: rgb(77, 121, 255);}
+    to {background-color: black;}
+}
+
+@keyframes color3 {
+    from {background-color: rgb(204, 204, 0);}
+    to {background-color: black;}
+}
+
+@keyframes color4 {
+    from {background-color: rgb(255, 153, 102);}
+    to {background-color: black;}
+}
+
+@keyframes to_color0 {
+    from {background-color: black;}
+    to {background-color: rgb(128, 128, 128);}
+}
+
+@keyframes to_color1 {
+    from {background-color: black;}
+    to {background-color: rgb(153, 0, 0);}
+}
+
+@keyframes to_color2 {
+    from {background-color: black;}
+    to {background-color: rgb(77, 121, 255);}
+}
+
+@keyframes to_color3 {
+    from {background-color: black;}
+    to {background-color: rgb(204, 204, 0);}
+}
+
+@keyframes to_color4 {
+    from {background-color: black;}
+    to {background-color: rgb(255, 153, 102);}
+}

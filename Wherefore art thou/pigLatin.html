@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+function translatePigLatin(str) {
+  str = checkSounds(str[0].toUpperCase(), str);
+  return str;
+}
+
+function checkSounds(firstLetter, str) {
+	if (firstLetter == 'B' || firstLetter == 'C'|| firstLetter == 'D' || firstLetter == 'F' || firstLetter == 'G' || firstLetter == 'H' || firstLetter == 'J' || firstLetter == 'K' || firstLetter == 'L' || firstLetter == 'M' || firstLetter == 'N' || firstLetter == 'P' || firstLetter == 'Q' || firstLetter == 'R' || firstLetter == 'S' || firstLetter ==  'T' || firstLetter == 'V' || firstLetter == 'X' || firstLetter == 'Z') {
+		strLength = str.length;
+		console.log(strLength);
+		str = str.substr(1, 9) + str.substr(0, 1) + 'ay';
+		console.log(str);
+		return str
+	} else {
+		str = str + 'way';
+		return str
+	}
+}
+
+translatePigLatin("consonant");
+
+	</script>
+</body>
+</html>
+
+

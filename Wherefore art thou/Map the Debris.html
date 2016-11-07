@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+// https://github.com/FreeCodeCamp/FreeCodeCamp/wiki/Algorithm-Map-The-Debris
+
+// Return a new array that transforms the element's average altitude into their orbital periods.
+
+// The array will contain objects in the format {name: 'name', avgAlt: avgAlt}.
+
+// You can read about orbital periods on wikipedia.
+
+// The values should be rounded to the nearest whole number. The body being orbited is Earth.
+
+// The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km3s-2.
+
+// Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.
+
+// Here are some helpful links:
+
+// Math.pow()
+
+
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  var array = [];
+  arr.forEach(function(item) {
+  	var res = Math.round(2 * Math.PI * (Math.sqrt(Math.pow(item.avgAlt + earthRadius, 3) / GM)));
+  	console.log('res', res);
+  	console.log(item.name);
+  	item.orbitalPeriod = res;
+  	delete item.avgAlt;
+  });
+  	
+  
+  console.log(arr);
+  return arr;
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+</script>
+	
+</body>
+</html>

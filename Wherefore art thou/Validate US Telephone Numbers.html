@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<p>555-555-5555</p>
+<p>(555)555-5555</p>
+<p>(555) 555-5555</p>
+<p>555 555 5555</p>
+<p>5555555555</p>
+<p>1 555 555 5555</p>
+
+
+<script>
+	
+	function telephoneCheck(str) {
+  // Good luck!
+  var arr = str.split('')
+  var nan = [];
+  var sym = [];
+  for(var i = 0; i < arr.length; i++) {
+  	if(isNaN(arr[i]) === false && arr[i] !== ' ') {
+  	  nan.push(arr[i]);
+  	 } else if (arr[i] === '(' || arr[i] === ')') {
+       sym.push(arr[i]);
+    }
+  }
+
+  if(sym.length !== 0) {
+  	var forTest = sym.join('');
+  	console.log(forTest);
+  	var result = /\(\)/.test(forTest)
+  	if(result === false) {
+  		return result;
+  	}
+  }
+
+  var nanj = nan.join('');
+
+  if(nanj.length === 10) {
+    var first = /(^[0-9]{3})|(^\([0-9]{3}\))/.test(str);
+    if(first) {
+      return /([0-9]{3}\-[0-9]{4})|([0-9]{3}\s[0-9]{4})|([0-9]{10})/.test(str);
+      
+    }
+  }
+
+  if(nanj.length === 11) {	
+     if (/^[1]/.test(str)) {
+    	if(/(\([0-9]{3}\))/.test(str)) {
+    	  return /([0-9]{3}\-[0-9]{4})|([0-9]{3}\w[0-9]{4})|([0-9]{10})/.test(str);
+    	}
+    return /([0-9]{3}\-[0-9]{3}\-[0-9]{4})|([0-9]{3}\s[0-9]{3}\s[0-9]{4})|([0-9]{10})/.test(str);
+    }
+    return false;
+  }
+  return false;
+}
+
+console.log('555-555-5555', telephoneCheck("555-555-5555"));
+console.log("1 555 555 5555", telephoneCheck("1 555 555 5555"));
+console.log("1 456 789 4444", telephoneCheck("1 456 789 4444"));
+console.log("1 555-555-5555", telephoneCheck("1 555-555-5555"));
+console.log("1 (555) 555-5555", telephoneCheck("1 (555) 555-5555"));
+console.log("(555)555-5555", telephoneCheck("(555)555-5555"));
+console.log("5555555555", telephoneCheck("5555555555"));
+console.log("1(555)555-5555", telephoneCheck("1(555)555-5555"));
+console.log("555)-555-5555 false", telephoneCheck("555)-555-5555"));
+console.log("27576227382 false", telephoneCheck("27576227382"));
+
+
+
+</script>
+	
+</body>
+</html>

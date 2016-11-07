@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+function permAlone(str) {
+  var array = str.split('');
+  var finalArray = new Array;
+  
+  var arr = str.split('');
+  var startNum = 0;
+  var sameWordQuantity = new Array;
+  findAllSame(arr[0]);
+  var checkingArr = arr;
+  console.log('checkingArr', checkingArr);
+
+  var swap = function (array, pos1, pos2) {
+    var temp = array[pos1];
+    array[pos1] = array[pos2];
+    array[pos2] = temp;
+  };
+
+  var heapsPermute = function (array, output, n) {
+    n = n || array.length; // set n default to array.length
+    if (n === 1) {
+      output(array);
+    } else {
+      for (var i = 1; i <= n; i++ ) {
+        heapsPermute(array, output, n - 1);
+        if (n % 2) {
+          var j = 1;
+        } else {
+          var j = i;
+        }
+        swap(array, j - 1, n - 1); // -1 to account for javascript zero-indexing
+      }
+    }
+  };
+
+
+// For testing:
+  var checkRepeats = function(input){
+    console.log('input', input);
+    var counter = 0;
+    
+    for(var j = 0; j < checkingArr.length; j++) {
+      console.log('j', j);
+      var pattrn = new RegExp(checkingArr[j] + checkingArr[j], 'gi');
+      var string = input.join('');
+      
+      console.log('str', string);
+      var testRes = pattrn.test(string);
+      console.log('testRes', testRes);
+
+      if(testRes === false) {
+      	counter += 1;
+      	console.log('counter +1');
+      	console.log(counter);
+      	if(counter === checkingArr.length) {
+      		finalArray.push(input);
+      	}
+      }
+    }
+  };
+
+  heapsPermute(array, checkRepeats);
+  console.log('final', finalArray);
+
+  // var arr = str.split('');
+  // var startNum = 0;
+  // var sameWordQuantity = new Array;
+  // findAllSame(arr[0])
+  
+  //這個funciton會將arr裡面變成完全沒有重複的值
+  function findAllSame(target) {
+  	var indices = new Array;
+  	var idx = arr.indexOf(target);
+  	while (idx !== -1) {
+  	  indices.push(idx);
+  	  idx = arr.indexOf(target, idx + 1);
+  	}
+  	// console.log('idx', idx);
+  	//push重複值的數量
+  	sameWordQuantity.push(indices.length);
+  	startNum += 1;
+  	//刪除arr中所有重複值，只留下一個值
+  	for(var i = 1; i < indices.length; i++) {
+  	  arr.splice(indices[i], 1);
+  	}
+  	//找尋下一個arr中的值看是否有重複
+  	if(startNum < arr.length) {
+  	  findAllSame(arr[startNum]);
+  	}
+  }
+  return finalArray.length;
+  // console.log('same', sameWordQuantity);
+  // console.log('arr final', arr);
+
+  // //回傳num的階乘值
+  // function factorial(num) {
+  // 	var j = num;
+  // 	var ans = 1;
+  // 	while (j > 1) {
+  // 	  ans *= j;
+  // 	  j--;
+  // 	}
+  // 	return ans;
+  // }
+  
+  // //分母 所有值重複數的階乘的乘積  例：aab a數目=2 b數目=1 最後回轉值即為 2! * 1!
+  // var denominator = (function() {
+  // 	var ans = 1;
+  // 	for(var k = 0; k < sameWordQuantity.length; k++) {
+  // 	  ans *= factorial(sameWordQuantity[k]);
+  // 	  console.log(ans);
+  // 	}
+  // 	return ans;
+  // })();
+  // console.log(denominator);
+
+
+  // var molecular = factorial(str.length);
+  // console.log(molecular)
+
+  // var finalAns = molecular / denominator;
+  // console.log('finalAns', finalAns);
+
+}
+
+
+
+permAlone('aaab');
+</script>
+	
+</body>
+</html>
